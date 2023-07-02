@@ -1,0 +1,92 @@
+<div class="p-5">
+  <div class="row gx-5">
+    <div class="col-7">
+      <div class="p-4 border bg-custom d-flex flex-column">
+        <div class="text-center" *ngIf="isLoading">
+          <div class="spinner-border" style="width: 4rem; height: 4rem;" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+        </div>
+        
+        <div *ngIf="!isLoading">
+          <p>{{ data?.title }}</p>
+
+          <div class="d-flex flex-row my-4">
+            <div *ngFor="let item of data?.items">
+              <button class="btn btn-outline-warning me-4 custom-btn icon-btn" type="submit"
+                (click)="onSelectCleaners(item)" [ngClass]="{'active': item?.count == selectedCount}">
+                <img [src]="item?.image" class="me-2">
+                {{ item?.displayText }}
+              </button>
+            </div>
+          </div>
+
+          <p>{{ data?.itemTitle }}</p>
+
+          <div class="d-flex flex-column mt-4">
+            <div *ngFor="let item of subItems" class="d-flex flex-row mb-4">
+              <button class="btn btn-outline-warning mb-0 me-4 custom-btn hour-btn" type="submit"
+                (click)="onSelectHours(item)" [ngClass]="{'active': item?.sort == selectedSort}">
+                {{ item?.itemName }}
+              </button>
+
+              <div class="d-flex flex-column justify-content-center">
+                <h6>AED {{ getPricePerHour(item) }} /{{ item?.unitOfMeasure }}</h6>
+                <p class="m-0">{{ item?.subTitle }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-5">
+      <div class="border bg-custom proceed-bg d-flex flex-column">
+        <div class="text-center" *ngIf="isLoading">
+          <div class="spinner-border" style="width: 4rem; height: 4rem;" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+        </div>
+
+        <div *ngIf="!isLoading">
+          <div class="px-4 py-3 d-flex flex-row justify-content-between">
+            <h3>AED {{ unitPrice }}</h3>
+            <p *ngIf="!isHideOrderSummary" class="hide-text">Hide Order Summary<i class="bi bi-chevron-up ms-1"
+                style="color: #cbb372;" (click)="hideOrShow()"></i></p>
+            <p *ngIf="isHideOrderSummary" class="hide-text">Show Order Summary<i class="bi bi-chevron-down ms-1"
+                style="color: #cbb372;" (click)="hideOrShow()"></i></p>
+          </div>
+
+          <div *ngIf="!isHideOrderSummary">
+            <div class="px-4 py-3">
+              <button class="btn btn-warning proceed-btn" type="submit">
+                Proceed to Book<i class="bi bi-chevron-right pro-icon"></i>
+              </button>
+            </div>
+            
+            <hr>
+
+            <div class="px-4 py-3">
+              <div class="p-3 custom-div d-flex flex-row justify-content-between mb-4">
+                <p>{{ cleaner?.count}} Cleaner, {{ package?.itemName }}</p>
+                <p>AED {{ unitPrice }}</p>
+              </div>
+
+              <div class="d-flex flex-column">
+                <div class="d-flex flex-row justify-content-between">
+                  <h5>Sub Total</h5>
+                  <h5>AED {{ unitPrice }}</h5>
+                </div>
+                
+                <div class="d-flex flex-row justify-content-between">
+                  <h5>Total (Inclusive 5% VAT)</h5>
+                  <h5>AED {{ unitPrice }}</h5>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

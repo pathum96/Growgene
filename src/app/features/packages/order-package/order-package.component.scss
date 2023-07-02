@@ -1,0 +1,74 @@
+.bg-custom {
+    border-radius: 8px;
+    box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.3);
+}
+
+.proceed-bg {
+    border-radius: 8px;
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.1); 
+}
+
+.icon-btn {
+    width: 150px !important;
+    
+}
+
+.hour-btn {
+    width: 300px !important; 
+}
+
+.custom-btn {
+    height: 50px !important;
+    --bs-btn-border-color: #dddbd8 !important;
+    --bs-btn-hover-bg: #fdf7e6;
+    --bs-btn-hover-border-color: #f1c54f;
+    --bs-btn-active-bg: #fdf7e6;
+    --bs-btn-active-border-color: #f1c54f;
+}
+
+h6 {
+    color: #038104 !important;
+    margin: 0;
+}
+
+.btn:hover {
+    font-weight: 500 !important;
+}
+
+.proceed-btn {
+    color: #fff;
+    font-size: 20px;
+    font-weight: 500;
+    width: 100% !important;
+    height: 50px !important;
+    --bs-btn-border-color: #edb111!important;
+    --bs-btn-hover-bg: #edb111;
+    --bs-btn-hover-border-color: #edb111;
+    --bs-btn-active-bg: #edb111;
+    --bs-btn-active-border-color: #edb111;
+}
+
+.pro-icon {
+    margin-left: 5vw;
+}
+
+.custom-div {
+    height: 60px;
+    background: #fdf7e6;
+    border: 1px solid #f1c54f;
+    border-radius: 3px;
+
+    p {
+        font-weight: 500;
+    }
+}
+
+.hide-text {
+    color: #cbb372;
+    font-weight: 500;
+}
+
+.active {
+    background: #fdf7e6;
+    border-color: #f1c54f;
+}
